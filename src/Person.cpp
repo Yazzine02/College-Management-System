@@ -1,17 +1,14 @@
-#include <Person.h>
+#include "Person.h"
 
-Person::Person(string first_name,string last_name,string date_of_birth,string username,string password,int id){
-	first_name=first_name;
-	last_name=last_name;
-	date_of_birth=date_of_birth;
-	username=username;
-	password=password;
-	id=id;
-}
+Person::Person(const std::string& first_name, const std::string& last_name, const std::string& date_of_birth,
+               const std::string& username, const std::string& password, int id)
+    : first_name(first_name), last_name(last_name), date_of_birth(date_of_birth),
+      username(username), password(password), id(id) {}
 
-void Person::check_info {
-	cout<<"ID:"<<id<<endl;
-	cout<<"First name:"<<first_name<<endl;
-	cout<<"Last name:"<<last_name<<endl;
-	cout<<"Date of birth"<<date_of_birth<<endl;
+void Person::check_info() {
+    std::cout << "ID: " << this->id << std::endl;
+    std::cout << "Username: " << this->username << std::endl;
+    std::cout << "First name: " << this->first_name << std::endl;
+    std::cout << "Last name: " << this->last_name << std::endl;
+    std::cout << "Date of birth: " << this->date_of_birth << std::endl;
 }
