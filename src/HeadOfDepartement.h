@@ -8,7 +8,7 @@
 class HeadOfDepartement : public Teacher {
 public:
     HeadOfDepartement(const std::string& username, const std::string& password);//OK
-    //void show_info();  Inherited from class Person
+    //void check_info();  Inherited from class Person
     //void input_mark();//OK
     //void input_attendance();
     void add_teacher(const std::string& username, const std::string& password,  const std::string& first_name, const std::string& last_name, const std::string& date_of_birth);
@@ -17,6 +17,7 @@ public:
     void remove_student(int student_id);
     void add_course(const string& title,const string& description);
     void remove_course(int course_id);
+    void search_person();
     //void time_table();
 };
 

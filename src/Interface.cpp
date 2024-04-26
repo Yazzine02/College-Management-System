@@ -46,42 +46,43 @@ Interface::Interface():db("/home/yazzine/Desktop/College_Project/DB/college-proj
 // DISPLAYS
 
 void Interface::display_login(){
-	std::cout << "Welcome to the College Management System!" << std::endl;
-        std::cout << "1. Student Login" << std::endl;
-        std::cout << "2. Teacher Login" << std::endl;
-        std::cout << "3. Head of Department Login" << std::endl;
-        std::cout << "0. Exit" << std::endl;
-        std::cout << "Enter your choice: ";
+    std::cout << "\033[1;4;97mWelcome to the College Management System!\033[0m" << std::endl;
+    std::cout << "\033[96m1. Student Login\033[0m" << std::endl;
+    std::cout << "\033[94m2. Teacher Login\033[0m" << std::endl;
+    std::cout << "\033[95m3. Head of Department Login\033[0m" << std::endl;
+    std::cout << "\033[31m0. Exit\033[0m" << std::endl;
+    std::cout << "\033[97m\033[1;3mEnter your choice: \033[0m";
 }
 
 void Interface::display_student_menu() {
-    	cout << "Student Menu:" << endl;
-    	cout << "1. Check Grades" << endl;
-    	cout << "2. Check Attendance" << endl;
-    	cout << "0. Logout" << endl;
-    	cout << "Enter your choice: ";
+    std::cout << "\033[96m\033[1;4mStudent Menu:\033[0m" << std::endl;
+    std::cout << "\033[96m1. Check Grades\033[0m" << std::endl;
+    std::cout << "\033[96m2. Check Attendance\033[0m" << std::endl;
+    std::cout << "\033[31m0. Logout\033[0m" << std::endl;
+    std::cout << "\033[97m\033[1;3mEnter your choice: \033[0m";
 }
 
 void Interface::display_teacher_menu() {
-    	cout << "Teacher Menu:" << endl;
-    	cout << "1. Input Mark" << endl;
-    	cout << "2. Input Attendance" << endl;
-    	cout << "0. Logout" << endl;
-    	cout << "Enter your choice: ";
+    std::cout << "\033[94m\033[1;4mTeacher Menu:\033[0m" << std::endl;
+    std::cout << "\033[94m1. Input Mark\033[0m" << std::endl;
+    std::cout << "\033[94m2. Input Attendance\033[0m" << std::endl;
+    std::cout << "\033[31m0. Logout\033[0m" << std::endl;
+    std::cout << "\033[97m\033[1;3mEnter your choice: \033[0m";
 }
 
 void Interface::display_headofdepartement_menu() {
-    	cout << "Head of Department Menu:" << endl;
-    	cout << "1. Add Teacher" << endl;
-    	cout << "2. Remove Teacher" << endl;
-    	cout << "3. Add Student" << endl;
-    	cout << "4. Remove Student" << endl;
-    	cout << "5. Add Course" << endl;
-    	cout << "6. Remove Course" << endl;
-    	cout << "7. Input Mark" << endl;
-	cout << "8. Input Attendance" << endl;
-    	cout << "0. Logout" << endl;
-    	cout << "Enter your choice: ";
+    std::cout << "\033[95m\033[1;4mHead of Department Menu:\033[0m" << std::endl;
+    std::cout << "\033[95m1. Add Teacher\033[0m" << std::endl;
+    std::cout << "\033[95m2. Remove Teacher\033[0m" << std::endl;
+    std::cout << "\033[95m3. Add Student\033[0m" << std::endl;
+    std::cout << "\033[95m4. Remove Student\033[0m" << std::endl;
+    std::cout << "\033[95m5. Add Course\033[0m" << std::endl;
+    std::cout << "\033[95m6. Remove Course\033[0m" << std::endl;
+    std::cout << "\033[95m7. Input Mark\033[0m" << std::endl;
+    std::cout << "\033[95m8. Input Attendance\033[0m" << std::endl;
+    std::cout << "\033[95m9. Search person\033[0m" << std::endl;
+    std::cout << "\033[31m0. Logout\033[0m" << std::endl;
+    std::cout << "\033[97m\033[1;3mEnter your choice: \033[0m";
 }
 
 
@@ -278,6 +279,10 @@ void Interface::handle_headofdepartement_actions(HeadOfDepartement& hod){
             }
             case 8: { // Input Attendance
                 hod.input_attendance();
+                break;
+            }
+            case 9: { // Search person
+                hod.search_person();
                 break;
             }
             case 0: { // Exit

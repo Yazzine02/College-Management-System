@@ -533,3 +533,102 @@ bool Database::remove_course(int course_id){
     
     		return false; // Return false if the operation fails
 };
+
+bool Database::search_student(int student_id) {
+    string query = "SELECT student_id, username, password, first_name, last_name, date_of_birth FROM Student WHERE student_id=?";
+    sqlite3_stmt* statement;
+    int result = 0;
+
+    if (sqlite3_prepare_v2(db, query.c_str(), -1, &statement, NULL) == SQLITE_OK) {
+        sqlite3_bind_int(statement, 1, student_id); // Bind the integer student_id
+
+        if (sqlite3_step(statement) == SQLITE_ROW) {
+			result = 1;
+			// Fetch id, username, password, first_name, last_name, and date_of_birth
+			int id = sqlite3_column_int(statement, 0);
+			string username = reinterpret_cast<const char*>(sqlite3_column_text(statement, 1));
+			string password = reinterpret_cast<const char*>(sqlite3_column_text(statement, 2));
+			string first_name = reinterpret_cast<const char*>(sqlite3_column_text(statement, 3));
+			string last_name = reinterpret_cast<const char*>(sqlite3_column_text(statement, 4));
+			string date_of_birth = reinterpret_cast<const char*>(sqlite3_column_text(statement, 5));
+			// Output or use the retrieved data
+			cout << "User found. Student ID: " << id << ", Username: " << username << ", Password: " << password
+				 << ", First Name: " << first_name << ", Last Name: " << last_name
+				 << ", Date of Birth: " << date_of_birth << endl;
+			} else {
+            cout << "Student not found. Please check the student id." << endl;
+        }
+
+        sqlite3_finalize(statement);
+    } else {
+        cerr << "Error preparing statement: " << sqlite3_errmsg(db) << endl;
+    }
+
+    return result == 1;
+}
+
+bool Database::search_teacher(int teacher_id) {
+    string query = "SELECT teacher_id, username, password, first_name, last_name, date_of_birth FROM Teacher WHERE teacher_id=?";
+    sqlite3_stmt* statement;
+    int result = 0;
+
+    if (sqlite3_prepare_v2(db, query.c_str(), -1, &statement, NULL) == SQLITE_OK) {
+        sqlite3_bind_int(statement, 1, teacher_id); // Bind the integer teacher_id
+
+        if (sqlite3_step(statement) == SQLITE_ROW) {
+			result = 1;
+			// Fetch id, username, password, first_name, last_name, and date_of_birth
+			int id = sqlite3_column_int(statement, 0);
+			string username = reinterpret_cast<const char*>(sqlite3_column_text(statement, 1));
+			string password = reinterpret_cast<const char*>(sqlite3_column_text(statement, 2));
+			string first_name = reinterpret_cast<const char*>(sqlite3_column_text(statement, 3));
+			string last_name = reinterpret_cast<const char*>(sqlite3_column_text(statement, 4));
+			string date_of_birth = reinterpret_cast<const char*>(sqlite3_column_text(statement, 5));
+			// Output or use the retrieved data
+			cout << "User found. Teacher ID: " << id << ", Username: " << username << ", Password: " << password
+				 << ", First Name: " << first_name << ", Last Name: " << last_name
+				 << ", Date of Birth: " << date_of_birth << endl;
+		} else {
+            cout << "Teacher not found. Please check the teacher id." << endl;
+        }
+
+        sqlite3_finalize(statement);
+    } else {
+        cerr << "Error preparing statement: " << sqlite3_errmsg(db) << endl;
+    }
+
+    return result == 1;
+}
+
+bool Database::search_headofdepartement(int hod_id) {
+    string query = "SELECT hod_id, username, password, first_name, last_name, date_of_birth FROM HeadOfDepartement WHERE hod_id=?";
+    sqlite3_stmt* statement;
+    int result = 0;
+
+    if (sqlite3_prepare_v2(db, query.c_str(), -1, &statement, NULL) == SQLITE_OK) {
+        sqlite3_bind_int(statement, 1, hod_id); // Bind the integer hod_id
+
+        if (sqlite3_step(statement) == SQLITE_ROW) {
+			result = 1;
+			// Fetch id, username, password, first_name, last_name, and date_of_birth
+			int id = sqlite3_column_int(statement, 0);
+			string username = reinterpret_cast<const char*>(sqlite3_column_text(statement, 1));
+			string password = reinterpret_cast<const char*>(sqlite3_column_text(statement, 2));
+			string first_name = reinterpret_cast<const char*>(sqlite3_column_text(statement, 3));
+			string last_name = reinterpret_cast<const char*>(sqlite3_column_text(statement, 4));
+			string date_of_birth = reinterpret_cast<const char*>(sqlite3_column_text(statement, 5));
+			// Output or use the retrieved data
+			cout << "User found. Head of Departement ID: " << id << ", Username: " << username << ", Password: " << password
+				 << ", First Name: " << first_name << ", Last Name: " << last_name
+				 << ", Date of Birth: " << date_of_birth << endl;
+		} else {
+            cout << "Head of departement not found. Please check the head of departement id." << endl;
+        }
+
+        sqlite3_finalize(statement);
+    } else {
+        cerr << "Error preparing statement: " << sqlite3_errmsg(db) << endl;
+    }
+
+    return result == 1;
+}

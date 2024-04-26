@@ -43,6 +43,9 @@ class Database{
 		bool remove_student(int student_id);//OK
 		bool add_course(const string& title,const string& description);//OK
 		bool remove_course(int course_id);//OK
+		bool search_student(int student_id);//OK
+		bool search_teacher(int teacher_id);//OK
+		bool search_headofdepartement(int hod_id);//OK
 };
 
 #endif

@@ -15,7 +15,7 @@ class Student: public Person{
 		Database db;
 	public:
 		Student(const string& username,const string& password);//OK
-		//coid check_info(); Inherited from class Person  //OK
+		//void check_info(); Inherited from class Person  //OK
 		void check_grades();//OK
 		void check_attendance();//OK
 };
